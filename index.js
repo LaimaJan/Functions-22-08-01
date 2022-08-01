@@ -41,13 +41,18 @@ function calculate(action, value1, value2) {
 		case "mod":
 			result = value1 % value2;
 			break;
+		case "clear":
+			firstInput.value = "";
+			secondInput.value = "";
+			output.value = "";
+			break;
 	}
 
 	return result;
 }
 
-clearBtn.addEventListener("click", () => {
-	firstInput.value = "";
-	secondInput.value = "";
-	output.value = "";
-});
+// clearBtn.addEventListener("click", () => {
+// 	firstInput.value = "";
+// 	secondInput.value = "";
+// 	output.value = "";
+// });
