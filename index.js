@@ -16,9 +16,7 @@ btn.addEventListener("click", function (event, inputValue1, inputValue2) {
 
 	ourResult = calculate(action, inputValue1, inputValue2);
 
-	output.innerText = "";
-
-	output.innerText += ourResult;
+	output.innerText = ourResult;
 });
 
 function calculate(action, value1, value2) {
