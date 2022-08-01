@@ -6,6 +6,7 @@ let mod = document.querySelector(".mod-btn");
 const output = document.getElementById("output");
 const firstInput = document.getElementById("first-input");
 const secondInput = document.getElementById("second-input");
+const clearBtn = document.getElementsByClassName("clear-btn")[0];
 
 // let inputValue1 = firstInput.value;
 // let inputValue2 = secondInput.value;
@@ -13,7 +14,7 @@ const secondInput = document.getElementById("second-input");
 sum.addEventListener("click", function (inputValue1, inputValue2) {
 	inputValue1 = firstInput.value;
 	inputValue2 = secondInput.value;
-	ourSum = parseInt(inputValue1) + parseInt(inputValue2);
+	ourSum = calculate("sum", inputValue1, inputValue2);
 	console.log(ourSum);
 	output.innerText = "";
 
@@ -23,39 +24,69 @@ sum.addEventListener("click", function (inputValue1, inputValue2) {
 sub.addEventListener("click", function (inputValue1, inputValue2) {
 	inputValue1 = firstInput.value;
 	inputValue2 = secondInput.value;
-	ourSum = parseInt(inputValue1) - parseInt(inputValue2);
+	ourSub = calculate("sub", inputValue1, inputValue2);
 
 	output.innerText = "";
 
-	output.innerText += ourSum;
+	output.innerText += ourSub;
 });
 
 div.addEventListener("click", function (inputValue1, inputValue2) {
 	inputValue1 = firstInput.value;
 	inputValue2 = secondInput.value;
-	ourSum = parseInt(inputValue1) / parseInt(inputValue2);
+	ourDiv = calculate("div", inputValue1, inputValue2);
 
 	output.innerText = "";
 
-	output.innerText += ourSum;
+	output.innerText += ourDiv;
 });
 
 mul.addEventListener("click", function (inputValue1, inputValue2) {
 	inputValue1 = firstInput.value;
 	inputValue2 = secondInput.value;
-	ourSum = parseInt(inputValue1) * parseInt(inputValue2);
+	ourMul = calculate("mul", inputValue1, inputValue2);
 
 	output.innerText = "";
 
-	output.innerText += ourSum;
+	output.innerText += ourMul;
 });
 
 mod.addEventListener("click", function (inputValue1, inputValue2) {
 	inputValue1 = firstInput.value;
 	inputValue2 = secondInput.value;
-	ourSum = parseInt(inputValue1) % parseInt(inputValue2);
+	ourMod = calculate("mod", inputValue1, inputValue2);
 
 	output.innerText = "";
 
-	output.innerText += ourSum;
+	output.innerText += ourMod;
+});
+
+function calculate(action, value1, value2) {
+	value1 = parseInt(value1);
+	value2 = parseInt(value2);
+	let result = 0;
+	switch (action) {
+		case "sum":
+			result = value1 + value2;
+			break;
+		case "sub":
+			result = value1 - value2;
+			break;
+		case "div":
+			result = value1 / value2;
+			break;
+		case "mul":
+			result = value1 * value2;
+			break;
+		case "mod":
+			result = value1 % value2;
+			break;
+	}
+
+	return result;
+}
+
+clearBtn.addEventListener("click", () => {
+	firstInput.value = "";
+	secondInput.value = "";
 });
