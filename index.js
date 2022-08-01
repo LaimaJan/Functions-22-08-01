@@ -4,9 +4,6 @@ const firstInput = document.getElementById("first-input");
 const secondInput = document.getElementById("second-input");
 const clearBtn = document.getElementsByClassName("clear-btn")[0];
 
-// let inputValue1 = firstInput.value;
-// let inputValue2 = secondInput.value;
-
 btn.addEventListener("click", function (event, inputValue1, inputValue2) {
 	inputValue1 = firstInput.value;
 	inputValue2 = secondInput.value;
@@ -48,9 +45,3 @@ function calculate(action, value1, value2) {
 
 	return result;
 }
-
-// clearBtn.addEventListener("click", () => {
-// 	firstInput.value = "";
-// 	secondInput.value = "";
-// 	output.value = "";
-// });
