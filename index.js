@@ -1,8 +1,4 @@
-let sum = document.querySelector(".sum-btn");
-let sub = document.querySelector(".sub-btn");
-let div = document.querySelector(".div-btn");
-let mul = document.querySelector(".mul-btn");
-let mod = document.querySelector(".mod-btn");
+let btn = document.querySelector(".calculator-buttons");
 const output = document.getElementById("output");
 const firstInput = document.getElementById("first-input");
 const secondInput = document.getElementById("second-input");
@@ -11,54 +7,18 @@ const clearBtn = document.getElementsByClassName("clear-btn")[0];
 // let inputValue1 = firstInput.value;
 // let inputValue2 = secondInput.value;
 
-sum.addEventListener("click", function (inputValue1, inputValue2) {
+btn.addEventListener("click", function (event, inputValue1, inputValue2) {
 	inputValue1 = firstInput.value;
 	inputValue2 = secondInput.value;
-	ourSum = calculate("sum", inputValue1, inputValue2);
-	console.log(ourSum);
-	output.innerText = "";
+	console.log(event);
+	action = event.target.id;
+	console.log(action);
 
-	output.innerText += ourSum;
-});
-
-sub.addEventListener("click", function (inputValue1, inputValue2) {
-	inputValue1 = firstInput.value;
-	inputValue2 = secondInput.value;
-	ourSub = calculate("sub", inputValue1, inputValue2);
+	ourResult = calculate(action, inputValue1, inputValue2);
 
 	output.innerText = "";
 
-	output.innerText += ourSub;
-});
-
-div.addEventListener("click", function (inputValue1, inputValue2) {
-	inputValue1 = firstInput.value;
-	inputValue2 = secondInput.value;
-	ourDiv = calculate("div", inputValue1, inputValue2);
-
-	output.innerText = "";
-
-	output.innerText += ourDiv;
-});
-
-mul.addEventListener("click", function (inputValue1, inputValue2) {
-	inputValue1 = firstInput.value;
-	inputValue2 = secondInput.value;
-	ourMul = calculate("mul", inputValue1, inputValue2);
-
-	output.innerText = "";
-
-	output.innerText += ourMul;
-});
-
-mod.addEventListener("click", function (inputValue1, inputValue2) {
-	inputValue1 = firstInput.value;
-	inputValue2 = secondInput.value;
-	ourMod = calculate("mod", inputValue1, inputValue2);
-
-	output.innerText = "";
-
-	output.innerText += ourMod;
+	output.innerText += ourResult;
 });
 
 function calculate(action, value1, value2) {
