@@ -89,4 +89,5 @@ function calculate(action, value1, value2) {
 clearBtn.addEventListener("click", () => {
 	firstInput.value = "";
 	secondInput.value = "";
+	output.value = "";
 });
